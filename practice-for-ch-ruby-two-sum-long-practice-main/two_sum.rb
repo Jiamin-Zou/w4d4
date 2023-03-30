@@ -30,6 +30,19 @@ def okay_two_sum?(arr, target_sum)
     # final is O(n log n)
 end
 
+def two_sum_hashes(arr, target_sum)
+    h = {} # constant
+    arr.each{|el| h[el] = 1} # linear
+
+    h.keys.each do |k| # linear
+        check = target_sum - k # constant
+        return true if h[check] == 1 && check != k # constant
+    end
+
+    false # constant
+    # final is linear O(n)
+end
+
 arr = [0, 1, 5, 7]
-p okay_two_sum?(arr, 6) # => should be true
-p okay_two_sum?(arr, 10) # => should be false
+p two_sum_hashes(arr, 6) # => should be true
+p two_sum_hashes(arr, 10) # => should be false
