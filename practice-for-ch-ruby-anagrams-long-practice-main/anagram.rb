@@ -7,7 +7,7 @@ end
 def sec_anagram?(str1, str2) #O(n^2)
     return false if str1.length != str2.length #constant
     str_arr = str2.chars #linear
-    str1.each_char do |char| #linear n^2
+    str1.each_char do |char| #linear
         idx = str_arr.index(char) #linear
         return false if idx.nil? #constant
         str_arr.delete_at(idx) #linear
