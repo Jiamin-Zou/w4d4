@@ -31,16 +31,23 @@ def okay_two_sum?(arr, target_sum)
 end
 
 def two_sum_hashes(arr, target_sum)
-    h = {} # constant
-    arr.each{|el| h[el] = 1} # linear
+    # h = {} # constant
+    # arr.each{|el| h[el] = 1} # linear
 
-    h.keys.each do |k| # linear
-        check = target_sum - k # constant
-        return true if h[check] == 1 && check != k # constant
+    # h.keys.each do |k| # linear
+    #     check = target_sum - k # constant
+    #     return true if h[check] == 1 && check != k # constant
+    # end
+
+    # false # constant
+    # # final is linear O(n)
+    h = {}
+    arr.each do |ele|
+        diff = target_sum - ele 
+        return true if !h[diff].nil?
+        h[ele] = 1 
     end
-
-    false # constant
-    # final is linear O(n)
+    false
 end
 
 arr = [0, 1, 5, 7]
